@@ -1,29 +1,11 @@
 let myLibrary = [];
-
+let i = 1
 
 const container = document.querySelector('container');
 const lists = document.querySelector('#list');
-//function Book() {
-  // the constructor...
-//}
 
-function addBookToLibrary() {
-  // do stuff here
-}
 
-//lets fucking do grid instead of flex because flex doesn't make any sense and is complete trash
 
-/*
- Title: Game of Thrones<br/><br/>
-  Author: George RR Martin<br/><br/>
-  Pages: 1000<br/><br/>
-  Read: Yes
-
-*/
-/* ${ getAuthor(book) } ${ getPages(book) } ${ getRead(book) } */
-
-//const books = 
-  //  { Title : 'Game of Thrones', Author : 'George RR Martin',  Pages : '1000', Read : "Yes" };
   
 let Title;
 let Author;
@@ -35,9 +17,7 @@ constructor(Title, Author, Pages, Read) {
     this.Title = document.getElementById("Title").value;
     this.Author = document.getElementById("Author").value;
     this.Pages = document.getElementById("Pages").value;
-    if(document.getElementById("Read").checked === true){
-    this.Read = "Yes";}
-    else  {this.Read = "No"}
+    this.Read = document.getElementById("Read").value;
     //this.Read = "No"
   }
 
@@ -47,29 +27,87 @@ let newBook;
     function createNewBook(){
     	newBook = new Book();
     	myLibrary.push(newBook);
-        console.log(myLibrary[0].Read);
+        
         displayBook();
+        clickCreate();
     }
+
+
 function displayBook()
 {  let bookItem = document.createElement('bookObject');
+
+ bookItem.setAttribute("id", "book" + i);
+ bookItem.setAttribute("class", "bookTransition");
+i += 1;
+
     for (let i = 0; i <= myLibrary.length; i++)
-        {
-   bookItem.innerHTML=  "Title: " + myLibrary[i].Title + "<br/><br/>Author: " + myLibrary[i].Author + "<br/><br/>Pages: " + myLibrary[i].Pages + "<br/><br/>Read: " + myLibrary[i].Read; 
-    document.querySelector(".container").appendChild(bookItem);}
+        {let k = 0;
+          if(myLibrary[i].Read == 2)
+          {k = 2;
+          bookItem.style.backgroundColor = 'rgba(72, 158, 32, 0.568)' }
+          else {k =1;
+            bookItem.style.backgroundColor = 'rgba(182, 83, 83, 0.568)'}
+          console.log(k);
+   bookItem.innerHTML=  "Title: " + '<button class = "delButton" id = "deleteButton" aria-label="Delete Card">×</button>' + myLibrary[i].Title + "<br/><br/>Author: " + myLibrary[i].Author + "<br/><br/>Pages: " + myLibrary[i].Pages + "<br/><br/>Read: " +`<input type="range" min="1" max="2" value=${k} class="slider" id="myRange"/>` ; 
+    document.querySelector(".container").appendChild(bookItem);
+  }
+    
+   
 }
- 
 
- //       let	newTask = new Todo(Title, Author, Pages, Read)
-   // 	myLibrary.push(newTask)
-  
-  //let GoT = new Book("Game of Thrones", "George RR Martin", 1000 , "No")   
-
-
+  function addChild() {
+    document.getElementById('form1').style.display = 'block';
+  }
 
 
     var form = document.querySelector("form");
     
     
 
+    document.addEventListener('mouseup', function(e) {
+      var container = document.getElementById('form1');
+      
+      if (!container.contains(e.target)) {
+          container.style.display = 'none';
+      }
+      
+  });
+
+ 
   
+  document.getElementById("boton").addEventListener("click", function() {
+    var container3 = document.getElementById('form1');
+    document.querySelector('#Title').value = '';
+    document.querySelector('#Author').value = '';
+    document.querySelector('#Pages').value = '';
+    document.querySelector('#Read').value = '1';
+    container3.style.display = 'none';
+
+  });
+ 
+   
+
+  document.getElementById("container").addEventListener("mouseup", function(event) {
+    if ( event.target.className === 'slider') {
+     let sliderValue = event.target.value;
+     let cardID = event.target.parentNode;
+      if( sliderValue == 2)
+      {cardID.style.backgroundColor = 'rgba(72, 158, 32, 0.568)'}
+      else if (sliderValue == 1)
+      {cardID.style.backgroundColor = 'rgba(182, 83, 83, 0.568)';}
+    }
+  });
+  
+ 
+
+
+
+
+document.getElementById("container").addEventListener("click", function(event) {
+  if ( event.target.className === 'delButton') {
+    
+    if(confirm('Are you sure you want to delete this card?')){
+    event.target.parentElement.remove();}
+    
+}});
   

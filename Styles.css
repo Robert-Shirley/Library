@@ -6,10 +6,171 @@
    margin-right: auto;
     height: auto;
     width: auto;
-    grid-template-columns: auto;
+    grid-template-columns: auto auto auto;
     grid-template-rows: auto;
    grid-template-areas: auto;
 }
+
+#deleteButton
+{ display: grid;
+  float: right;
+  background-color: whitesmoke;
+  height: 25px;
+  width: 25px;
+  font-size: x-large;
+  padding: 0px;
+  padding-bottom: 25px;
+  margin-top: 5px;
+  margin-right: 4px;
+  border-width: thin;
+  border-radius: 5px;
+  border-color: white;
+  box-shadow: none;
+  
+}
+
+
+#deleteButton:hover { 
+  transform: scale(1.1); 
+  
+  cursor: pointer;
+  box-shadow: 0px 1.7px 5px #dfdfdf;
+  outline:lightcoral;
+}
+
+h1
+{
+    font-weight: bold;
+    font-size: xx-large;  
+    background-color: white;
+    width: fit-content;
+    margin-left: 8px;
+    border-color: black;
+    border-style: solid;
+    border-width: thin;
+    border-radius: 5px;
+    color: grey;
+    
+}
+
+div.display {
+    display: inline-block;
+    width: 40%;
+    height: 200px;
+    border: 1px solid black;
+  }
+  div {
+    overflow: hidden;
+  }
+#AddBook
+{   display: grid;
+    align-content: center;
+    justify-content: center;
+    justify-self:center;
+    width: 200px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: xx-large;
+    background-color:navajowhite;
+    margin-top: 20px;
+    border-radius: 5px;
+    margin-bottom: 0px;
+}
+
+#AddBook:hover { 
+  transform: scale(1.1); 
+  
+  cursor: pointer;
+  box-shadow: 0px 1.7px 5px #dfdfdf;
+  outline:lightcoral;
+}
+
+#myRange{
+    width: 40px;
+   
+    size: 30px;
+    background-color: black;
+}
+
+#form1 {
+    margin-top: 10px;
+    display: none;
+    align-content: center;
+    margin-left: auto;
+    justify-content: center;
+    margin-right: auto;
+    width: 460px;
+    height: 320px;
+    background-color: paleturquoise;
+    padding-top: 05px;
+    border-style: groove;
+    border-color: black;
+    border-width: thin;
+   
+  }
+
+  #Title
+  {
+      height: 40px;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+      margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: xx-large;
+    
+  }
+
+  #Author
+  {
+      height: 40px;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+      margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+
+  #Pages
+  {
+      height: 40px;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+      margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: xx-large;
+  }
+
+  #boton
+  { height: 40px;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+
+#boton:hover { 
+  transform: scale(1.1); 
+  
+  cursor: pointer;
+  box-shadow: 0px 1.7px 5px #dfdfdf;
+  outline:lightcoral;
+}
+
 
 .headerClass
 {  display:flex;
@@ -18,9 +179,7 @@
     font-family: 'Courier New', Courier, monospace;
     font-size: 40px;
     order: 0;
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
+   
     padding: 5px;
     width: fit-content;
     margin-left: auto;
@@ -32,66 +191,90 @@
     font-size: 30px;
 }
 
+
 bookobject{
+    margin-top: 60px;
     border-style: solid;
     border-color: black;
-    border-width: 2px;
-    width: auto;
+    border-width: thin;
+    border-radius: 5px;
+    width: 350px;
     text-align: left;
     margin-left: auto;
     margin-right: auto;
     font-family: 'Times New Roman', Times, serif;
     font-size: 30px;
-    font-weight: bold;
+    font-weight:bolder;
+       max-width: 350px;
+    margin-bottom: 20px;
+    height: 250px;
+    max-height: 350px;
+    padding:2px;
+    background-color:rgba(182, 83, 83, 0.568);
+    }
 
-}
-
-.bookObject
-{   grid-area: bookObject;
-    display: flex;
-    border-style: solid;
-    border-color: black;
-    border-width: 0px;
-    width: auto;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    font-weight: bold;
+    .slider1
+    {
+      width: auto;
+      overflow: hidden;
+      margin-top: 10px;
+      background-color: white;
+      
+    }
     
 
+    .slider
+    {
+      overflow: hidden; 
+    }
+
+    @media screen and (-webkit-min-device-pixel-ratio:1) {
+        input[type='range'] {
+          overflow: hidden;
+          color: white;
+          height: 12px;
+          -webkit-appearance: none;
+          background-color: #dbd5b5;
+          border-radius: 10px;
+        }
+        
+        input[type='range']::-webkit-slider-runnable-track {
+          height: 15px;
+          -webkit-appearance: slider-horizontal;
+          color: #13bba4;
+          margin-top: -1px;
+          border-radius: 10px;
+          background: rgba(170, 27, 27, 0.829);
+          
+        }
+        input[type='range']::-webkit-slider-thumb::before {
+            height: 15px;
+            -webkit-appearance: slider-horizontal;
+            color: #13bba4;
+            margin-top: -1px;
+            border-radius: 10px;
+            background: white;
+          }
+        
+        input[type='range']::-webkit-slider-thumb {
+          width: 10px;
+          -webkit-appearance: none;
+          height: 15px;
+          cursor: ew-resize;
+          background: #000000;
+          box-shadow: -80px 0 0 80px rgba(99, 236, 36, 0.568);
+          border-radius: 5px;
+        }
+    }
+.bookTransition
+{ transition: all .2s ease-in-out; }
+
+
+.bookTransition:hover { 
+  transform: scale(1.1); 
+  
+  cursor: pointer;
+  box-shadow: 0px 1.7px 5px #dfdfdf;
+  outline:lightcoral;
 }
-.bookObject2
-{   grid-area: bookObject2;
-    display: flex;
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
-    width: auto;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    font-weight: bold;
-    
-
-}
-
-.bookObject3
-{   grid-area: bookObject3;display: flex;
-    border-style: solid;
-    border-color: black;
-    border-width: 2px;
-    width: auto;
-    text-align: left;
-    margin-left: auto;
-    margin-right: auto;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 30px;
-    font-weight: bold;
-
-}
-
 

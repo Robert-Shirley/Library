@@ -7,18 +7,23 @@
   <link rel="stylesheet" href="Styles.css">
 </head>
 <body>
+  
 <header class="headerClass">Library</header>
+<button type="button" id="AddBook" value ="Add Child" onclick="addChild();">
+ Add Book </button>
 
 
-<form>
-<input id="Title" type="text" placeholder="Title" name="Title">
-<input id="Author"  type="text" placeholder="Author" name="Author">
-<input id="Pages" type="text" placeholder="pages" name="pages">
-Read?
-<input id="Read" type="checkbox" name="Read">
+<form id="form1" autocomplete="off">
+<input id="Title" type="text" placeholder="Title" name="Title"></br>
+<input id="Author"  type="text" placeholder="Author" name="Author"></br>
+<input id="Pages" type="text" placeholder="Pages" name="pages"></br>
+<h1>Read? &nbsp; &nbsp; &nbsp; &nbsp; No or Yes </h1>
+<input type="range" style = "width:125x; margin-left:165px;"min="1" max="2" value="1" class="slider1" id="Read"/>
 <button
         type="button"
-        class="btn btn-primary"
+        class="btn btn-primary"function addChild() {
+          document.getElementById('form1').style.display = 'none';
+        }
         id="boton"
         onclick="createNewBook()"
         
@@ -28,14 +33,12 @@ Read?
 </form>
 
 
-<div class= "container">
+<div class= "container" id="container">
 
 
 
-<div class="bookObject">
-  
 </div>
-</div>
+
 
 
 
